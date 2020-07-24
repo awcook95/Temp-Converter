@@ -22,14 +22,23 @@ public class MainActivity extends AppCompatActivity {
         EditText edtTxtF = findViewById(R.id.editF);
         EditText edtTxtC = findViewById(R.id.editC);
 
-        double F = Integer.parseInt(edtTxtF.getText().toString());
-        double C = Integer.parseInt(edtTxtC.getText().toString());
+        String fString = edtTxtF.getText().toString();
+        String cString = edtTxtC.getText().toString();
 
-        F = (F-32.0)*5.0/9.0;
-        C = (C*9.0/5.0)+32.0;
 
-        txtResultF.setText(String.format("%.2f", F));
-        txtResultC.setText(String.format("%.2f", C));
+
+        if(fString.matches("") || cString.matches("")){
+            return;
+        }
+
+        double f = Integer.parseInt(edtTxtF.getText().toString());
+        double c = Integer.parseInt(edtTxtC.getText().toString());
+
+        f = (f-32.0)*5.0/9.0;
+        c = (c*9.0/5.0)+32.0;
+
+        txtResultF.setText(String.format("%.2f", f));
+        txtResultC.setText(String.format("%.2f", c));
 
     }
 }
